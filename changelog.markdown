@@ -9,6 +9,21 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.9.0: 3.9.0
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/04/01 00:06:35 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+## What's Changed
+* Allow Symfony 8 by **[W0rma](https://github.com/W0rma)** in https://github.com/Codeception/module-symfony/pull/225
+* Performance Optimizations and Code Audit by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/commit/768cdc6fa41dfd85f92b180ffccd90daa0fa26f4
+* Run module tests using PHPUnit by **[TavoNiievez](https://github.com/TavoNiievez)** in https://github.com/Codeception/module-symfony/commit/c37d23e5b6cae52a5b7ca47c87f27c1f524fb0cf
+
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.8.0...3.9.0
+
+
 ### module-redis 3.2.3: 3.2.3
 
 Released by [![](https://avatars.githubusercontent.com/u/20659830?v=4&s=16){:height="16" width="16"} W0rma](https://github.com/W0rma) on 2026/02/18 06:48:20 / [Repository](https://github.com/Codeception/module-redis)   / [Releases](https://github.com/Codeception/module-redis/releases)
@@ -4453,15 +4468,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 [#5](https://github.com/Codeception/lib-asserts/issues/5) by **[TavoNiievez](https://github.com/TavoNiievez)** 
-
-
-### module-symfony 1.1.1: Fixed seeEmailIsSent 
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2020/08/28 07:06:19 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-[#9](https://github.com/Codeception/module-symfony/issues/9) by **[ThomasLandauer](https://github.com/ThomasLandauer)** and **[TavoNiievez](https://github.com/TavoNiievez)** 
 
 
 ### module-webdriver 1.1.1: Multibyte characters are allowed in build artefact filenames

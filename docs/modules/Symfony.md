@@ -779,6 +779,7 @@ Asserts that the given URL *has not* been requested with the supplied HTTP metho
 
 By default, it will inspect the default Symfony HttpClient; you may check a different one by passing its
 service-id in $httpClientId.
+
 {% highlight php %}
 
 $I->assertNotHttpClientRequest('https://example.com/unexpected', 'GET');
@@ -836,7 +837,7 @@ Use `getNotifierEvent(int $index = 0, ?string $transportName = null)` to retriev
 
 <?php
 $event = $I->getNotifierEvent();
-$I->assertNotificationlIsQueued($event);
+$I->assertNotificationIsQueued($event);
 
 {% endhighlight %}
 
@@ -1905,7 +1906,7 @@ $I->dontSeeResponseCodeIs(\Codeception\Util\HttpCode::OK);
 * `param ?string` $constraint
 * `return void`
 
-Asserts that the given subject fails validation.
+Asserts that the given subject passes validation.
 
 This assertion does not concern the exact number of violations.
 
@@ -2250,8 +2251,9 @@ $notifications = $I->grabSentNotifications();
 #### grabService
 
 * `part` services
-* `param non-empty-string` $serviceId
-* `return object`
+* `template` T of object
+* `param string|class-string<T>` $serviceId
+* `return ($serviceId` is class-string<T> ? T : object)
 
 Grabs a service from the Symfony dependency injection container (DIC).
 
@@ -2479,7 +2481,9 @@ You can set additional cookie params like `domain`, `path` in array passed as la
 
 Run Symfony console command, grab response and return as string.
 
-Recommended to use for integration or functional testing.
+Recommended to use for functional testing.
+
+Note: The command execution is isolated to bypass global application events, preventing unintended side effects.
 
 {% highlight php %}
 
@@ -2590,7 +2594,7 @@ $I->seeCookie('PHPSESSID');
 
 #### seeCurrentActionIs
 
-* `param string` $action
+* `param non-empty-string` $action
 * `return void`
 
 Checks that current page matches action
@@ -2839,8 +2843,8 @@ $I->seeFormErrorMessage('username', 'Username is empty');
 
 Verifies that multiple fields on a form have errors.
 
-If you only specify the name of the fields, this method will
-verify that the field contains at least one error of any type:
+Use a list of field names when you only need to assert that each field
+has at least one validation error:
 
 {% highlight php %}
 
@@ -2849,27 +2853,22 @@ $I->seeFormErrorMessages(['telephone', 'address']);
 
 {% endhighlight %}
 
-If you want to specify the error messages, you can do so
-by sending an associative array instead, with the key being
-the name of the field and the error message the value.
-This method will validate that the expected error message
-is contained in the actual error message, that is,
-you can specify either the entire error message or just a part of it:
+Use an associative array to also verify the error text for one or more
+fields. The expected message is matched as a substring, so partial
+fragments are allowed:
 
 {% highlight php %}
 
 <?php
 $I->seeFormErrorMessages([
     'address'   => 'The address is too long',
-    'telephone' => 'too short', // the full error message is 'The telephone is too short'
+    'telephone' => 'too short',
 ]);
 
 {% endhighlight %}
 
-If you don't want to specify the error message for some fields,
-you can pass `null` as value instead of the message string,
-or you can directly omit the value of that field. If that is the case,
-it will be validated that that field has at least one error of any type:
+You can mix both styles in the same call. If a field maps to `null`,
+only the existence of an error is checked for that field:
 
 {% highlight php %}
 
@@ -3118,7 +3117,7 @@ If your app performs an HTTP redirect after sending the notification, you need t
 {% highlight php %}
 
 <?php
-$I->seeNotificatoinIsSent(2);
+$I->seeNotificationIsSent(2);
 
 {% endhighlight %}
 
@@ -3416,7 +3415,7 @@ $I->seeUserPasswordDoesNotNeedRehash($user);
 * `param ?string` $constraint
 * `return void`
 
-Asserts that the given subject passes validation.
+Asserts that the given subject fails validation.
 
 This assertion does not concern the exact number of violations.
 
@@ -3900,7 +3899,7 @@ $I->uncheckOption('#notify');
 #### unpersistService
 
 * `part` services
-* `param string` $serviceName
+* `param non-empty-string` $serviceName
 * `return void`
 
 Remove service $serviceName from the lists of persistent services.
