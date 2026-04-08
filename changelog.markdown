@@ -9,6 +9,19 @@ title: Codeception Changelog
 
 
 
+### module-mezzio 4.1.0: 4.1.0
+
+Released by [![](https://avatars.githubusercontent.com/u/152236?v=4&s=16){:height="16" width="16"} Slamdunk](https://github.com/Slamdunk) on 2026/04/08 14:18:15 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
+
+
+
+## What's Changed
+* Migrate from container-interop to psr/container by **[luiscunhaafricainternetgroup](https://github.com/luiscunhaafricainternetgroup)** in https://github.com/Codeception/module-mezzio/pull/21
+
+
+**Full Changelog**: https://github.com/Codeception/module-mezzio/compare/4.0.2...4.1.0
+
+
 ### module-symfony 3.9.0: 3.9.0
 
 Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/04/01 00:06:35 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
