@@ -34,7 +34,7 @@ and [HttpKernel Component](https://symfony.com/doc/current/components/http_kerne
 
 ### Config
 
-#### Symfony 5.4 or higher
+#### Symfony 5.4, 6.4, 7.4 or 8.0
 
 * `app_path`: 'src' - Specify custom path to your app dir, where the kernel interface is located.
 * `environment`: 'local' - Environment used for load kernel
@@ -45,7 +45,7 @@ and [HttpKernel Component](https://symfony.com/doc/current/components/http_kerne
 * `rebootable_client`: 'true' - Reboot client's kernel before each request
 * `guard`: 'false' - Enable custom authentication system with guard (only for Symfony 5.4)
 * `bootstrap`: 'false' - Enable the test environment setup with the tests/bootstrap.php file if it exists or with Symfony DotEnv otherwise. If false, it does nothing.
-* `authenticator`: 'false' - Reboot client's kernel before each request (only for Symfony 6.0 or higher)
+* `authenticator`: 'false' - Enable custom authentication system with authenticator (only for Symfony 6.0 or higher)
 
 ##### Sample `Functional.suite.yml`
 
@@ -266,6 +266,17 @@ $I->amLoggedInAs($user);
 * `param string` $firewallName
 * `param ?string` $firewallContext
 * `return void`
+
+Login with the given authentication token.
+
+If you have more than one firewall or firewall context, you can specify the desired one as a parameter.
+
+{% highlight php %}
+
+<?php
+$I->amLoggedInWithToken($token);
+
+{% endhighlight %}
 
 
 #### amOnAction
@@ -818,7 +829,7 @@ Use `getNotifierEvent(int $index = 0, ?string $transportName = null)` to retriev
 
 <?php
 $event = $I->getNotifierEvent();
-$I->asserNotificationIsNotQueued($event);
+$I->assertNotificationIsNotQueued($event);
 
 {% endhighlight %}
 
@@ -1983,12 +1994,6 @@ $event = $I->getNotifierEvent();
 {% endhighlight %}
 
 
-#### getNotifierEvents
-
-* `param ?string` $transportName
-* `return MessageEvent[]`
-
-
 #### getNotifierMessage
 
 * `param int` $index
@@ -2003,12 +2008,6 @@ Returns the notifier message at the specified index.
 $message = $I->getNotifierMessage();
 
 {% endhighlight %}
-
-
-#### getNotifierMessages
-
-* `param ?string` $transportName
-* `return MessageInterface[]`
 
 
 #### goToLogoutPath

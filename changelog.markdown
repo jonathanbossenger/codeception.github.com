@@ -9,6 +9,18 @@ title: Codeception Changelog
 
 
 
+### module-symfony 3.9.1: 3.9.1
+
+Released by [![](https://avatars.githubusercontent.com/u/64917965?v=4&s=16){:height="16" width="16"} TavoNiievez](https://github.com/TavoNiievez) on 2026/04/14 20:34:41 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
+
+
+
+### What's Changed
+* fix inconsistencies across assertion traits and tests  in https://github.com/Codeception/module-symfony/pull/228, https://github.com/Codeception/module-symfony/pull/229 and https://github.com/Codeception/module-symfony/pull/230.
+
+**Full Changelog**: https://github.com/Codeception/module-symfony/compare/3.9.0...3.9.1
+
+
 ### module-mezzio 4.1.0: 4.1.0
 
 Released by [![](https://avatars.githubusercontent.com/u/152236?v=4&s=16){:height="16" width="16"} Slamdunk](https://github.com/Slamdunk) on 2026/04/08 14:18:15 / [Repository](https://github.com/Codeception/module-mezzio)   / [Releases](https://github.com/Codeception/module-mezzio/releases)
@@ -4256,27 +4268,6 @@ Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:heigh
 
 
 
-
-
-### module-symfony 1.2.0: 1.2.0
-
-Released by [![](https://avatars.githubusercontent.com/u/395992?v=4&s=16){:height="16" width="16"} Naktibalda](https://github.com/Naktibalda) on 2020/10/31 18:41:28 / [Repository](https://github.com/Codeception/module-symfony)   / [Releases](https://github.com/Codeception/module-symfony/releases)
-
-
-
-* New methods by **[TavoNiievez](https://github.com/TavoNiievez)**:
-  * amLoggedInAs
-  * logout
-  * seeInSession
-  * seeAuthentication
-  * dontSeeAuthentication
-  * seeUserHasRole 
-  * amOnAction
-  * seeCurrentActionIs
-  * seeNumRecords
-
-* Supports vlucas/phpdotenv ^3.6 and  ^4.1
-* Improved description and error messages of grabService and seeEmailIsSent by **[ThomasLandauer](https://github.com/ThomasLandauer)**
 
 
 ### module-memcache 1.0.1: Support PHP 8
